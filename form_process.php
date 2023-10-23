@@ -56,8 +56,19 @@
                     <form method="post" action="register_process.php">
                         <div class="input-boxes">
                             <div class="input-box">
+                                <input type="text" name="first_name" placeholder="First name" required>
+                                <input type="text" name="last_name" placeholder="Last name" required>
+                            </div>
+                            <div class="input-boxes">
+                                <div class="input-box">
+                                    <i class="fa-solid fa-venus-mars"></i>
+                                    <input type="radio" name="sex" value="male">Male
+                                    <input type="radio" name="sex" value="female">Female
+                                </div>
+                            </div>
+                            <div class="input-box">
                                 <i class="fa-solid fa-user-plus"></i>
-                                <input type="text" name="username" placeholder="Enter your name" required>
+                                <input type="text" name="username" placeholder="Enter your username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
