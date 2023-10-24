@@ -15,7 +15,7 @@ session_start(); //start temp session until logout/browser closed
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Starter Template for Bootstrap</title>
+    <title>Krusty Krab | Home</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -47,15 +47,15 @@ session_start(); //start temp session until logout/browser closed
                         <?php
 						if(empty($_SESSION["user_id"])) // if user is not login
 							{
-								echo '<li class="nav-item"><a href="login.php" class="nav-link active">login</a> </li>
-							  <li class="nav-item"><a href="registration.php" class="nav-link active">signup</a> </li>';
+								echo '<li class="nav-item"><a href="login.php" class="nav-link active">Login</a> </li>
+							  <li class="nav-item"><a href="registration.php" class="nav-link active">Signup</a> </li>';
 							}
 						else
 							{
 									//if user is login
 									
-									echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">your orders</a> </li>';
-									echo  '<li class="nav-item"><a href="logout.php" class="nav-link active">logout</a> </li>';
+									echo  '<li class="nav-item"><a href="your_orders.php" class="nav-link active">Your Orders</a> </li>';
+									echo  '<li class="nav-item"><a href="logout.php" class="nav-link active">Logout</a> </li>';
 							}
 
 						?>
@@ -130,9 +130,8 @@ session_start(); //start temp session until logout/browser closed
 						                       echo '  <div class="col-xs-12 col-sm-6 col-md-4 food-item">
 														<div class="food-item-wrap">
 															<div class="figure-wrap bg-image" data-image-src="admin/Res_img/dishes/'.$r['img'].'">
-																<div class="distance"><i class="fa fa-pin"></i>1240m</div>
-																<div class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
-																<div class="review pull-right"><a href="#">198 reviews</a> </div>
+                                                            <div style="background-color: #131925; border-radius: 5px; padding-left: 5px; padding-right: 5px;" class="rating pull-left"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
+                                                            <div style="background-color: #131925; border-radius: 5px; padding-left: 5px; padding-right: 5px;" class="review pull-right"><a href="#">198 reviews</a> </div>
 															</div>
 															<div class="content">
 																<h5><a href="dishes.php?res_id='.$r['rs_id'].'">'.$r['title'].'</a></h5>

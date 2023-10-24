@@ -14,7 +14,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="#">
-    <title>Starter Template for Bootstrap</title>
+    <title>Krusty Krab Restaurant</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -43,8 +43,8 @@ session_start();
                         <?php
 						if(empty($_SESSION["user_id"]))
 							{
-							    echo '<li class="nav-item"><a href="login.php" class="nav-link active">login</a> </li>
-							    <li class="nav-item"><a href="registration.php" class="nav-link active">signup</a> </li>';
+							    echo '<li class="nav-item"><a href="login.php" class="nav-link active">Login</a> </li>
+							    <li class="nav-item"><a href="registration.php" class="nav-link active">Signup</a> </li>';
 							}
 						else
 							{
@@ -86,40 +86,6 @@ session_start();
         <section class="restaurants-page">
             <div class="container">
                 <div class="row">
-                    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3">
-                        <div class="widget clearfix">
-                            <!-- /widget heading -->
-                            <div class="widget-heading">
-                                <h3 class="widget-title text-dark">
-                                    Popular tags
-                                </h3>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="widget-body">
-                                <ul class="tags">
-                                    <li> <a href="#" class="tag">
-                                            Pizza
-                                        </a> </li>
-                                    <li> <a href="#" class="tag">
-                                            Sendwich
-                                        </a> </li>
-                                    <li> <a href="#" class="tag">
-                                            Sendwich
-                                        </a> </li>
-                                    <li> <a href="#" class="tag">
-                                            Fish
-                                        </a> </li>
-                                    <li> <a href="#" class="tag">
-                                            Desert
-                                        </a> </li>
-                                    <li> <a href="#" class="tag">
-                                            Salad
-                                        </a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- end:Widget -->
-                    </div>
                     <div class="col-xs-12 col-sm-7 col-md-7 col-lg-9">
                         <div class="bg-gray restaurant-entry">
                             <div class="row">
