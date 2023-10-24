@@ -69,7 +69,7 @@ session_start(); //start temp session until logout/browser closed
     </header>
     <!-- banner part starts -->
     <section class="hero bg-image" data-image-src="images/img/main.jpeg">
-        <div class="hero-inner">
+        <div data-aos="fade-up" class="hero-inner">
             <div class="container text-center hero-text font-white">
                 <h1 style="padding-bottom: 50px;">Order Delivery & Take-Out</h1>
                 <div class="steps">
@@ -223,6 +223,10 @@ session_start(); //start temp session until logout/browser closed
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/headroom.js"></script>
     <script src="js/foodpicky.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
 </body>
 
 </html>
