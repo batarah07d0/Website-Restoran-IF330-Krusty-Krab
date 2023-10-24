@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="images/krusty-krab.png">
     <title>Krusty Krab | Login Form</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -77,6 +78,7 @@ if(isset($_POST['submit']))   // if button is submit
         </div>
 
         <div class="cta">Not registered?<a href="registration.php" style="color:#f30;"> Create an account</a></div>
+        <div class="cta">Login as Admin<a href="admin/index.php" style="color:#f30;"> Admin page</a></div>
     </div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 

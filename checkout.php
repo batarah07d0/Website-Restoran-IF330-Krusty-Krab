@@ -29,8 +29,8 @@ else{
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="#">
-    <title>Starter Template for Bootstrap</title>
+    <link rel="icon" href="images/krusty-krab.png">
+    <title>Krusty Krab - Checkout Menu</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@ else{
                 <div class="container">
                     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
                         data-target="#mainNavbarCollapse">&#9776;</button>
-                    <a class="navbar-brand" href="index.html"> <img class="img-rounded" src="images/food-picky-logo.png"
+                    <a class="navbar-brand" href="index.html"> <img class="img-rounded" src="images/krusty-krab.png"
                             alt=""> </a>
                     <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                         <ul class="nav navbar-nav">
@@ -78,7 +78,7 @@ else{
         </header>
         <div class="page-wrapper">
             <div class="top-links">
-                <div class="container">
+                <div style="padding-top: 20px;" class="container">
                     <ul class="row links">
                         <li class="col-xs-12 col-sm-4 link-item"><span>1</span><a href="restaurants.php">Choose
                                 Restaurant</a></li>

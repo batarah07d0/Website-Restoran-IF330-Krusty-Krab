@@ -75,7 +75,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="#">
+    <link rel="icon" href="images/krusty-krab.png">
     <title>Krusty Krab | Registration Form</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -94,8 +94,8 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
             <div class="container">
                 <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
                     data-target="#mainNavbarCollapse">&#9776;</button>
-                <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/food-picky-logo.png"
-                        alt=""> </a>
+                <a class="navbar-brand" href="index.php"> <img class="img-rounded" src="images/krusty-krab.png"
+                        alt=""></a>
                 <div class="collapse navbar-toggleable-md  float-lg-right" id="mainNavbarCollapse">
                     <ul class="nav navbar-nav">
                         <li class="nav-item"> <a class="nav-link active" href="index.php">Home <span
