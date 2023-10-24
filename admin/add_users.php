@@ -5,80 +5,45 @@ session_start();
 error_reporting(0);
 include("../connection/connect.php");
 
-if(isset($_POST['submit'] ))
-{
-    if(empty($_POST['uname']) ||
-   	    empty($_POST['fname'])|| 
-		empty($_POST['lname']) ||  
-		empty($_POST['email'])||
-		empty($_POST['password'])||
-		empty($_POST['phone']) ||
-		empty($_POST['address']))
-		{
-			$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>All fields Required!</strong>
-															</div>';
-		}
-	else
-	{
-		
-	$check_username= mysqli_query($db, "SELECT username FROM users where username = '".$_POST['uname']."' ");
-	$check_email = mysqli_query($db, "SELECT email FROM users where email = '".$_POST['email']."' ");
-		
+$message = ''; // Initialize the message variable
 
-	
-	
-    if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
-    {
-       	$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>invalid email!</strong>
-															</div>';
-    }
-	elseif(strlen($_POST['password']) < 6)
-	{
-		$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Password must be >=6!</strong>
-															</div>';
-	}
-	
-	elseif(strlen($_POST['phone']) < 10)
-	{
-		$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>invalid phone!</strong>
-															</div>';
-	}
-	elseif(mysqli_num_rows($check_username) > 0)
-     {
-    	$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Username already exist!</strong>
-															</div>';
-     }
-	elseif(mysqli_num_rows($check_email) > 0)
-     {
-    	$error = '<div class="alert alert-danger alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>email already exist!</strong>
-															</div>';
-     }
-	else{
-       
-	
-	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['uname']."','".$_POST['fname']."','".$_POST['lname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
-	mysqli_query($db, $mql);
-			$success = 	'<div class="alert alert-success alert-dismissible fade show">
-																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-																<strong>Congrass!</strong> New User Added Successfully.</br></div>';
-	
-    }
-	}
+if (isset($_POST['submit'])) {
+    $uname = $_POST['uname'];
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $email = $_POST['email'];
+    $gender = $_POST['gender'];
+    $birth_date = $_POST['birth_date'];
+    $password = $_POST['password'];
+    $address = $_POST['address'];
 
+    if (empty($uname) || empty($fname) || empty($lname) || empty($email) || empty($gender) || empty($birth_date) || empty($password)) {
+        $message = "All fields are required!";
+    } else {
+        // Checking username & email if already present
+        $check_username = mysqli_query($db, "SELECT username FROM users WHERE username = '$uname'");
+        $check_email = mysqli_query($db, "SELECT email FROM users WHERE email = '$email'");
+
+        if (strlen($password) < 6) {
+            $message = "Password must be at least 6 characters long";
+        } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $message = "Invalid email address. Please enter a valid email.";
+        } elseif (mysqli_num_rows($check_username) > 0) {
+            $message = 'Username already exists!';
+        } elseif (mysqli_num_rows($check_email) > 0) {
+            $message = 'Email already exists!';
+        } else {
+            // Inserting values into the database
+            $en_pass = password_hash($password, PASSWORD_BCRYPT);
+            $mql = "INSERT INTO users (username, f_name, l_name, email, gender, birth_date, password, address) VALUES ('$uname', '$fname', '$lname', '$email', '$gender', '$birth_date', '$en_pass', '$address')";
+            mysqli_query($db, $mql);
+            $success = '<div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Congratulations!</strong> New User Added Successfully.
+            </div>';
+        }
+    }
 }
-
 ?>
 
 <head>
@@ -88,7 +53,7 @@ if(isset($_POST['submit'] ))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
+
     <title>Krusty Krab | Admin Dashboard</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -275,7 +240,7 @@ if(isset($_POST['submit'] ))
                                                 <!--/span-->
                                                 <div class="col-md-6">
                                                     <div class="form-group has-danger">
-                                                        <label class="control-label">First-Name</label>
+                                                        <label class="control-label">First Name</label>
                                                         <input type="text" name="fname"
                                                             class="form-control form-control-danger" placeholder="">
                                                     </div>
@@ -286,7 +251,7 @@ if(isset($_POST['submit'] ))
                                             <div class="row p-t-20">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label">Last-Name </label>
+                                                        <label class="control-label">Last Name </label>
                                                         <input type="text" name="lname" class="form-control"
                                                             placeholder="">
                                                     </div>
@@ -307,26 +272,36 @@ if(isset($_POST['submit'] ))
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label">Password</label>
-                                                        <input type="text" name="password"
+                                                        <input type="password" name="password"
                                                             class="form-control form-control-danger" placeholder="">
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label class="control-label">Phone</label>
-                                                        <input type="text" name="phone"
-                                                            class="form-control form-control-danger" placeholder="">
-                                                    </div>
+                                                <div class="form-group col-sm-6">
+                                                    <label for="birthdate">Birth Date</label>
+                                                    <input type="date" class="form-control" id="birthdate"
+                                                        name="birth_date">
                                                 </div>
                                             </div>
                                             <!--/span-->
+                                            <label class="ml-1">Gender</label>
+                                            <div class="form-group col-sm-6">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="maleRadio" value="male">
+                                                    <label class="form-check-label" for="maleRadio">Male</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="gender"
+                                                        id="femaleRadio" value="female">
+                                                    <label class="form-check-label" for="femaleRadio">Female</label>
+                                                </div>
+                                            </div>
                                             <h3 class="box-title m-t-40"> Address</h3>
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-12 ">
                                                     <div class="form-group">
-
                                                         <textarea name="address" type="text" style="height:100px;"
                                                             class="form-control"></textarea>
                                                     </div>

@@ -19,6 +19,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="images/krusty-krab.png">
     <title>Krusty Krab | Admin Dashboard</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -181,7 +182,6 @@ else
                                     <h2><?php $sql="select * from dishes";
 												$result=mysqli_query($db,$sql); 
 													$rws=mysqli_num_rows($result);
-													
 													echo $rws;?></h2>
                                     <p class="m-b-0">Dishes</p>
                                 </div>

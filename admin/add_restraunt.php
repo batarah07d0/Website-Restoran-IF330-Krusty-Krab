@@ -83,28 +83,9 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>invalid extension!</strong>png, jpg, Gif are accepted.
 															</div>';
-						
-	   
 						}               
-	   
-	   
 	   }
-
-
-
-	
-	
-	
-
 }
-
-
-
-
-
-
-
-
 ?>
 
 <head>
@@ -114,7 +95,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
+    <link rel="icon" href="images/krusty-krab.png">
     <title>Krusty Krab | Admin Dashboard</title>
     <!-- Bootstrap Core CSS -->
     <link href="css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">

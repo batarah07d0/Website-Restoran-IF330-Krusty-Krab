@@ -10,7 +10,8 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
      if(empty($_POST['firstname']) ||  //fetching and find if its empty
    	    empty($_POST['lastname'])|| 
 		empty($_POST['email']) ||  
-		empty($_POST['phone'])||
+		empty($_POST['gender'])||
+        empty($_POST['birth_date'])||
 		empty($_POST['password'])||
 		empty($_POST['cpassword']) ||
 		empty($_POST['cpassword']))
@@ -30,11 +31,6 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
 	{
 		$message = "Password Must be >=6";
 	}
-	elseif(strlen($_POST['phone']) < 10)  //cal phone length
-	{
-		$message = "invalid phone number!";
-	}
-
     elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) // Validate email address
     {
        	$message = "Invalid email address please type a valid email!";
@@ -49,9 +45,10 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
      }
 	else{
 	 //inserting values into db
-	$mql = "INSERT INTO users(username,f_name,l_name,email,phone,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['phone']."','".md5($_POST['password'])."','".$_POST['address']."')";
+     $en_pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
+     $mql = "INSERT INTO users(username,f_name,l_name,email,gender,birth_date,password,address) VALUES('".$_POST['username']."','".$_POST['firstname']."','".$_POST['lastname']."','".$_POST['email']."','".$_POST['gender']."','".$_POST['birth_date']."','".$en_pass."','".$_POST['address']."')";     
 	mysqli_query($db, $mql);
-		$success = "Account Created successfully! <p>You will be redirected in <span id='counter'>5</span> second(s).</p>
+		$success = "Account Created successfully! <p>You will be redirected in <span id='counter'>5</span> second(s)</p>
 														<script type='text/javascript'>
 														function countdown() {
 															var i = document.getElementById('counter');
@@ -152,24 +149,20 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                                                 id="example-text-input" placeholder="First Name">
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label for="exampleInputEmail1">Last Name</label>
+                                            <label for "exampleInputEmail1">Last Name</label>
                                             <input class="form-control" type="text" name="lastname"
                                                 id="example-text-input-2" placeholder="Last Name">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="exampleInputEmail1">Email Address</label>
                                             <input type="text" class="form-control" name="email" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Enter email"> <small
-                                                id="emailHelp" class="form-text text-muted">We"ll never share your email
-                                                with anyone else.</small>
+                                                aria-describedby="emailHelp" placeholder="Enter email">
+                                            <small id="emailHelp" class="form-text text-muted">We'll never share your
+                                                email with anyone else.</small>
                                         </div>
                                         <div class="form-group col-sm-6">
-                                            <label for="exampleInputEmail1">Phone Number</label>
-                                            <input class="form-control" type="text" name="phone"
-                                                id="example-tel-input-3" placeholder="Phone"> <small
-                                                class="form-text text-muted">We"ll never share your phone number with
-                                                anyone
-                                                else.</small>
+                                            <label for="birthdate">Birth Date</label>
+                                            <input type="date" class="form-control" id="birthdate" name="birth_date">
                                         </div>
                                         <div class="form-group col-sm-6">
                                             <label for="exampleInputPassword1">Password</label>
@@ -180,6 +173,19 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                                             <label for="exampleInputPassword1">Repeat Password</label>
                                             <input type="password" class="form-control" name="cpassword"
                                                 id="exampleInputPassword2" placeholder="Password">
+                                        </div>
+                                        <label class="ml-1">Gender</label>
+                                        <div class="form-group col-sm-6">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="maleRadio" value="male">
+                                                <label class="form-check-label" for="maleRadio">Male</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="gender"
+                                                    id="femaleRadio" value="female">
+                                                <label class="form-check-label" for="femaleRadio">Female</label>
+                                            </div>
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label for="exampleTextarea">Delivery Address</label>
@@ -194,6 +200,7 @@ if(isset($_POST['submit'] )) //if submit btn is pressed
                                         </div>
                                     </div>
                                 </form>
+
                             </div>
                             <!-- end: Widget -->
                         </div>
