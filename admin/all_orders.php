@@ -268,18 +268,10 @@ session_start();
                                                 <?php
 																								echo '<a href="view_order.php?user_upd='.$rows['o_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
 																									</td>
-																									</tr>';
-																					 
-																						
-																						
+																									</tr>';								
 																		}	
 														}
-												
-											
 											?>
-
-
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -294,14 +286,6 @@ session_start();
     <!-- End PAge Content -->
     </div>
     <!-- End Container fluid  -->
-
-
-
-
-    <!-- footer -->
-    <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a>
-    </footer>
-    <!-- End footer -->
     </div>
     <!-- End Page wrapper  -->
     </div>

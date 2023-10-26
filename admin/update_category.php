@@ -17,24 +17,13 @@ if(isset($_POST['submit'] ))
 		}
 	else
 	{
-		
-	
-	
-	
-       
-	
 	$mql = "update res_category set c_name ='$_POST[c_name]' where c_id='$_GET[cat_upd]'";
 	mysqli_query($db, $mql);
 			$success = 	'<div class="alert alert-success alert-dismissible fade show">
 																<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 																<strong>Updated!</strong> Successfully.</br></div>';
-	
-    
 	}
-
 }
-
-
 ?>
 
 <head>
@@ -434,7 +423,6 @@ if(isset($_POST['submit'] ))
                                                     </div>
                                                 </div>
                                                 <!--/span-->
-
                                             </div>
                                             <div class="form-actions">
                                                 <input type="submit" name="submit" class="btn btn-success" value="save">
@@ -444,24 +432,11 @@ if(isset($_POST['submit'] ))
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
-
-
-
-
-
-
-
                 </div>
                 <!-- End PAge Content -->
             </div>
             <!-- End Container fluid  -->
-            <!-- footer -->
-            <footer class="footer"> © 2018 All rights reserved. </footer>
-            <!-- End footer -->
         </div>
         <!-- End Page wrapper  -->
     </div>

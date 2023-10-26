@@ -207,30 +207,19 @@ session_start();
 														{				
 																	while($rows=mysqli_fetch_array($query))
 																		{
-																					
-																				
-																				
-																					echo ' <tr><td>'.$rows['username'].'</td>
-																								<td>'.$rows['f_name'].'</td>
-																								<td>'.$rows['l_name'].'</td>
-																								<td>'.$rows['email'].'</td>
-																								<td>'.$rows['phone'].'</td>
-																								<td>'.$rows['address'].'</td>																								
-																								<td>'.$rows['date'].'</td>
-																									 <td><a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
-																									 <a href="update_users.php?user_upd='.$rows['u_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
-																									</td></tr>';
-																					 
-																						
-																						
+                                                                            echo ' <tr><td>'.$rows['username'].'</td>
+                                                                            <td>'.$rows['f_name'].'</td>
+																			<td>'.$rows['l_name'].'</td>
+																			<td>'.$rows['email'].'</td>
+																			<td>'.$rows['phone'].'</td>
+																			<td>'.$rows['address'].'</td>																								
+																			<td>'.$rows['date'].'</td>
+																			 <td><a href="delete_users.php?user_del='.$rows['u_id'].'" class="btn btn-danger btn-flat btn-addon btn-xs m-b-10"><i class="fa fa-trash-o" style="font-size:16px"></i></a> 
+																			 <a href="update_users.php?user_upd='.$rows['u_id'].'" " class="btn btn-info btn-flat btn-addon btn-sm m-b-10 m-l-5"><i class="ti-settings"></i></a>
+																			</td></tr>';								
 																		}	
 														}
-												
-											
 											?>
-
-
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -245,14 +234,6 @@ session_start();
     <!-- End PAge Content -->
     </div>
     <!-- End Container fluid  -->
-
-
-
-
-    <!-- footer -->
-    <footer class="footer"> © 2018 All rights reserved. Template designed by <a href="https://colorlib.com">Colorlib</a>
-    </footer>
-    <!-- End footer -->
     </div>
     <!-- End Page wrapper  -->
     </div>
