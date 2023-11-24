@@ -10,6 +10,7 @@ Project Website Restaurant Krusty Krab ini adalah Project Ujian Tengah Semester 
 *User*
 - Register, Login, and Logout Account
 - Add to Chart Menu, Checkout Menu
+
 *Admin*
 - CRUD (Create, Read, Update, and Delete) Menu, Restaurant, and User Information
 
